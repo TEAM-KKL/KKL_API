@@ -5,8 +5,11 @@ COPY gradle gradle
 COPY build.gradle settings.gradle gradlew ./
 COPY src src
 
+RUN chmod +x ./gradlew
 RUN ./gradlew build -x test
-RUN mkdir -p build/dependency && (cd build/dependency; jar -xf ../libs/*.jar)
+RUN ls -la build/libs/
+RUN mkdir -p build/dependency
+RUN cd build/dependency && jar -xf ../libs/*.jar
 
 FROM eclipse-temurin:21-jre-alpine
 VOLUME /tmp
