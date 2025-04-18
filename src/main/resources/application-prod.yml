@@ -2,6 +2,10 @@ server:
   url: https://api.koreatechmap.kro.kr
 
 springdoc:
+  swagger-ui:
+    path: /api/docs
+  api-docs:
+    path: /api/v1/api-docs
   default-consumes-media-type: application/json
   default-produces-media-type: application/json
   servers:
